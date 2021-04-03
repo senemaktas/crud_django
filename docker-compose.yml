@@ -6,10 +6,10 @@ services:
     build: .
     ports:
       - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python3 manage.py runserver 0.0.0.0:8000
     environment:
-      - DB_HOST=db
-      - DB_NAME=prodaft
+      - DB_HOST=localhost
+      - DB_NAME=newdb
       - DB_USER=postgres
       - DB_PASS=prodaft123*
     depends_on:
@@ -18,7 +18,7 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_DB=prodaft
+      - POSTGRES_DB=newdb
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=prodaft123*
     volumes:

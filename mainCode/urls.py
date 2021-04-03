@@ -1,7 +1,4 @@
 """mainCode URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -11,28 +8,12 @@ Class-based views
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.conf.urls import url
-from django.contrib import admin
-from django.urls import path
-from django.conf.urls.static import static
-## END This should exist
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls')) """
 
-## Important : Import the views from the demo folder
-## to get the index action
-from mainCode.demo import views
+from django.contrib import admin
+from django.urls import path,include
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    ## Create the action for : http://127.0.0.1/
-    ## Use the index action from the views on /demo/views.py
-    url(r'', views.index),
-] 
-
-
-"""urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', GetDroplets.as_view(template_name='index.html'), name='Droplet View'),
-] """
-
+    path('/',include('demo.urls'))
+]

@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainCode', # The new app
-    'rest_framework',
-    'corsheaders',
+    'demo', # The new app
+    'crispy_forms',
+    "bootstrap4",
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mainCode.urls'
+ROOT_URLCONF = 'demo.urls'
 
 
 TEMPLATES = [
@@ -81,11 +83,11 @@ WSGI_APPLICATION = 'mainCode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'HOST': os.environ.get('DB_HOST'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'ENGINE':'django.db.backends.postgresql',
+        'HOST': 'localhost',
+        'NAME': 'newdb',
+        'USER': 'postgres',
+        'PASSWORD':'prodaft123*',
         'PORT':'',
        
        }
