@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 <form action="" method="post" autocomplete="off">
     {% csrf_token %}  <!-- security -->
-
     <div class="row">
         <div class="col-md-8">
             {{form.name|as_crispy_field}}
@@ -17,14 +15,11 @@
             {{form.phone|as_crispy_field}}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-4">
             <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
                 Submit</button> 
-        </div>
-        <div class="col-md-4">
-                <button type="submit" name="generateUser" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
-                    Generate User</button>
         </div>
         <div class="col-md-4">
             <a href="{% url 'user_list' %}" class="btn btn-secondary btn-block btn-lg">
@@ -34,4 +29,4 @@
     </div>
 
 </form>
-{% endblock content %}
+{% endblock content %} 

@@ -14,7 +14,15 @@ def generate_request(url, params={}):
 def get_user(params={}):
 
     response = generate_request('https://randomuser.me/api', params)
-    user = response.get('results')[0]
+    user = response.get('results')[0]  
+    return user 
 
-    return user
+def get_many_user(params={}):
+    user_list = [] #store all variables into list
 
+    for i in range(6):  #we can change the range value to get more data
+        response = generate_request('https://randomuser.me/api', params)
+        user = response.get('results')[0]  
+        user_list.append(user)
+        i +=1
+    return user_list 
