@@ -87,7 +87,7 @@ DATABASES = {
         'HOST': 'localhost',
         'NAME': 'newdb',
         'USER': 'postgres',
-        'PASSWORD':'prodaft123*',
+        'PASSWORD':'crud123*',
         'PORT':'',
        
        }

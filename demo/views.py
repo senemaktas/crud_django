@@ -12,18 +12,15 @@ from django.views.generic import TemplateView
 # relative import of forms
 from .models import userModel
 from .forms import userForm
-
 from .services import get_user # services baglantisi
 
 def user_list(request):
-    # dictionary for initial data with field names as keys
+
     context = {'user_list': userModel.objects.all().order_by("-id")}
-    # add the dictionary during initialization
-    #context["dataset"] = userModel.objects.all().order_by("-id")
     return render(request, "user_list.html", context)
 
 #insert and update operations- GET/POST
-def user_form(request, id=0):
+def user_form(request, id=0):    
     if request.method == "GET":
         if id == 0:
             form = userForm()
@@ -36,11 +33,10 @@ def user_form(request, id=0):
             form = userForm(request.POST)
         else:
             userr = userModel.objects.get(pk=id)
-            form = userForm(request.POST,instance= userr)
+            form = userForm(request.POST,instance= userr)        
         if form.is_valid():
             form.save()
         return redirect('/list')
-
 
 def user_delete(request,id):
     userr = userModel.objects.get(pk=id)
@@ -48,7 +44,19 @@ def user_delete(request,id):
     return redirect('/list')
 
 
-def user_create(request, id=0):
+def fill_form(request):
+    userr= userModel()
+    userr = userModel.objects.get(pk=id)
+    user=get_user()
+    userr.name = request.POST.get(user.get('name'))
+    userr.email = request.POST.get(user.get('email'))
+    userr.phone= request.POST.get(user.get('phone'))
+    form = userForm(request.POST,instance= userr)
+    if form.is_valid():
+        form.save()
+    return redirect('/list')
+
+"""def user_create(request, id=0):
 
     context = {
         'user_add': get_user(params={})   }  #connect service and get data
@@ -70,4 +78,4 @@ def user_create(request, id=0):
     # close the connection
     conn.close()
 
-    return redirect('/list') 
+    return redirect('/list') """

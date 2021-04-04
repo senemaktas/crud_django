@@ -11,7 +11,7 @@ services:
       - DB_HOST=localhost
       - DB_NAME=newdb
       - DB_USER=postgres
-      - DB_PASS=prodaft123*
+      - DB_PASS=crud123*
     depends_on:
       - db
       
@@ -20,7 +20,7 @@ services:
     environment:
       - POSTGRES_DB=newdb
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=prodaft123*
+      - POSTGRES_PASSWORD=crud123*
     volumes:
       - Xvolume:/var/lib/postgresql/data
       

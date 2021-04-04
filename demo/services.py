@@ -14,6 +14,7 @@ def generate_request(url, params={}):
 def get_user(params={}):
 
     response = generate_request('https://randomuser.me/api', params)
-    user = response.get('results')[0]  
+    user = response.get('results')[0]
 
-    return user 
+    return user
+
