@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'demo', # The new app
     'crispy_forms',
     "bootstrap4",
+    'rest_framework',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'mainCode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql',
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
         'HOST': 'localhost',
         'NAME': 'newdb',
         'USER': 'postgres',
