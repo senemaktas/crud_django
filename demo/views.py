@@ -41,17 +41,7 @@ def user_form(request, id=0):
           }
 
         if id == 0:
-            form = userForm(initial = initial_dict)  
-
-            conn = psycopg2.connect(host="localhost", port ='',database='newdb', user='postgres', password='crud123*')
-            
-            cur = conn.cursor()
-            insert_query = """INSERT INTO newtable (id, name, email, phone) VALUES (%s, %s, %s, %s)"""
-            cur.execute(insert_query, str(initial_dict))
-            conn.commit()
-
-            cur.close()
-            conn.close()            
+            form = userForm(initial = initial_dict)            
 
         else:
             userr = userModel.objects.get(pk=id)
