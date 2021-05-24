@@ -22,3 +22,5 @@ CRUD with Django (Create, Retrieve, Update, Delete)
 
 
 <img src="demo/static/images/list.png" alt="view"	width="700" height="400" /> 
+
+Run: python3 runserver manage.py
